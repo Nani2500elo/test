@@ -6,7 +6,7 @@
     <title>Mes Chantiers</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
-        /* Appliquer un fond bleu foncé à toute la page */
+      /* Appliquer un fond bleu foncé à toute la page */
         body, html {
             height: 100%;
             margin: 0;
@@ -18,16 +18,18 @@
             padding: 0;
         }
 
-        /* Style pour la carte pour qu'elle occupe toute la place */
+        /* Style pour la carte pour qu'elle occupe 90% de la hauteur et largeur */
         #map {
-            height: 80%;
-            width: 80%;      
+            height: 90%;  /* La carte occupe 90% de la hauteur de la fenêtre */
+            width: 90%;   /* La carte occupe 90% de la largeur de la fenêtre */
+            margin: 0 auto;  /* Centrer la carte horizontalement */
         }
 
         h1 {
             text-align: center;
-            color: orange;
+            color: white;
             padding-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
