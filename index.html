@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Chantiers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mes Chantiers</h1>
+    <div id="map"></div>
+
+    <!-- Inclure la bibliothèque Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialisation de la carte avec une position de départ
+        var map = L.map('map').setView([43.23648, 1.0756], 8);  // Coordonnées initiales
+
+        // Ajouter la couche de tuiles OpenStreetMap (carte)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Liste des chantiers
+        var chantiers = [
+            {name: "Mcdonald's Cazeres", lat: 43.23648, lon: 1.0756, description: "2 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Port Leucate", lat: 42.84132, lon: 3.03826, description: "1 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Sigean", lat: 42.76053, lon: 2.97349, description: "1 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Lezignan", lat: 43.18754, lon: 2.75074, description: "1 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Thuir", lat: 42.64033, lon: 2.76278, description: "2 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Castanet", lat: 43.51994, lon: 1.49669, description: "1 Bornes IRVE de 180kW"},
+            {name: "Mcdonald's Cahors", lat: 44.46691, lon: 1.42763, description: "1 Bornes IRVE de 180kW"}
+        ];
+
+        // Ajouter des marqueurs pour chaque chantier sur la carte
+        chantiers.forEach(function(chantier) {
+            L.marker([chantier.lat, chantier.lon])
+                .addTo(map)
+                .bindPopup("<strong>" + chantier.name + "</strong><br>" + chantier.description);
+        });
+    </script>
+
+</body>
+</html>
